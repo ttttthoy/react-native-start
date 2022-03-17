@@ -12,18 +12,22 @@ export default function MainPage() {
 
   //기존 꿀팁을 저장하고 있을 상태
   const [state,setState] = useState([])
+  /*
+  useEffect(()=>{
+     setState(data)
+  },[])
+  */
+
   //카테고리에 따라 다른 꿀팁을 그때그때 저장관리할 상태
   const [cateState,setCateState] = useState([])
 
   //컴포넌트에 상태를 여러개 만들어도 됨
-  //관리할 상태이름과 함수는 자유자재로 정의할 수 있음
   //초기 상태값으로 리스트, 참거짓형, 딕셔너리, 숫자, 문자 등등 다양하게 들어갈 수 있음.
   const [ready,setReady] = useState(true)
 
   useEffect(()=>{
 	   
     //뒤의 1000 숫자는 1초를 뜻함
-    //1초 뒤에 실행되는 코드들이 담겨 있는 함수
     setTimeout(()=>{
         //꿀팁 데이터로 모두 초기화 준비
         let tip = data.tip;
@@ -83,17 +87,12 @@ export default function MainPage() {
 
 const styles = StyleSheet.create({
   container: {
-    //앱의 배경 색
     backgroundColor: '#fff',
   },
   title: {
-    //폰트 사이즈
     fontSize: 20,
-    //폰트 두께
     fontWeight: '700',
-    //위 공간으로 부터 이격
     marginTop:50,
-    //왼쪽 공간으로 부터 이격
     marginLeft:20
   },
 weather:{
@@ -101,11 +100,8 @@ weather:{
     paddingRight:20
   },
   mainImage: {
-    //컨텐츠의 넓이 값
     width:'90%',
-    //컨텐츠의 높이 값
     height:200,
-    //컨텐츠의 모서리 구부리기
     borderRadius:10,
     marginTop:20,
     //컨텐츠 자체가 앱에서 어떤 곳에 위치시킬지 결정(정렬기능)
@@ -167,8 +163,7 @@ weather:{
   },
   middleButtonTextAll: {
     color:"#fff",
-    fontWeight:"700",
-    //텍스트의 현재 위치에서의 정렬 
+    fontWeight:"700", 
     textAlign:"center"
   },
   cardContainer: {
